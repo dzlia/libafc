@@ -1,5 +1,5 @@
 /* libafc - utils to facilitate C++ development.
-Copyright (C) 2013-2017 Dźmitry Laŭčuk
+Copyright (C) 2013-2022 Dźmitry Laŭčuk
 
 libafc is free software: you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by
@@ -101,6 +101,11 @@ namespace afc
 		}
 
 		inline bool logPrint(const std::pair<const char *, const char *> &s, FILE * const dest) noexcept
+		{
+			return logText(s.first, std::size_t(s.second - s.first), dest);
+		}
+
+		inline bool logPrint(const std::pair<char *, char *> &s, FILE * const dest) noexcept
 		{
 			return logText(s.first, std::size_t(s.second - s.first), dest);
 		}
