@@ -42,11 +42,11 @@ build $buildDir/StackTrace.o: cxx $srcDir/afc/StackTrace.cpp
 build $buildDir/stream.o: cxx $srcDir/afc/stream.cpp
 
 build $buildDir/run_tests.o: cxx_test $testDir/run_tests.cpp
+build $buildDir/Base64Test.o: cxx_test $testDir/Base64Test.cpp
 build $buildDir/CompileTimeMathTest.o: cxx_test $testDir/CompileTimeMathTest.cpp
 build $buildDir/ConvertCharsetTest.o: cxx_test $testDir/ConvertCharsetTest.cpp
 build $buildDir/CrcTest.o: cxx_test $testDir/CrcTest.cpp
 build $buildDir/DateUtilTest.o: cxx_test $testDir/DateUtilTest.cpp
-build $buildDir/EncodeBase64Test.o: cxx_test $testDir/EncodeBase64Test.cpp
 build $buildDir/FastDivisionTest.o: cxx_test $testDir/FastDivisionTest.cpp
 build $buildDir/FastStringBufferTest.o: cxx_test $testDir/FastStringBufferTest.cpp
 build $buildDir/JSONObjectParserTest.o: cxx_test $testDir/JSONObjectParserTest.cpp
@@ -90,11 +90,11 @@ build $buildDir/libafc.a: linkStatic $
 
 build $buildDir/libafc_test: bin $
     $buildDir/run_tests.o $
+    $buildDir/Base64Test.o $
     $buildDir/CompileTimeMathTest.o $
     $buildDir/ConvertCharsetTest.o $
     $buildDir/CrcTest.o $
     $buildDir/DateUtilTest.o $
-    $buildDir/EncodeBase64Test.o $
     $buildDir/FastDivisionTest.o $
     $buildDir/FastStringBufferTest.o $
     $buildDir/JSONObjectParserTest.o $

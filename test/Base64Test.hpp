@@ -1,5 +1,5 @@
 /* libafc - utils to facilitate C++ development.
-Copyright (C) 2013-2014 Dźmitry Laŭčuk
+Copyright (C) 2013-2023 Dźmitry Laŭčuk
 
 libafc is free software: you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by
@@ -13,39 +13,43 @@ GNU Lesser General Public License for more details.
 
 You should have received a copy of the GNU Lesser General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>. */
-#ifndef AFC_ENCODEBASE64TEST_H_
-#define AFC_ENCODEBASE64TEST_H_
+#ifndef AFC_BASE64TEST_H_
+#define AFC_BASE64TEST_H_
 
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
 namespace afc
 {
-	// TODO Add tests that test all possible values of an octet.
-	class EncodeBase64Test : public CppUnit::TestFixture
+	// TODO Add encode tests that test all possible values of an octet.
+	class Base64Test : public CppUnit::TestFixture
 	{
-		CPPUNIT_TEST_SUITE(EncodeBase64Test);
-		CPPUNIT_TEST(testString_EncodeEmptyString);
-		CPPUNIT_TEST(testString_EncodeOctet);
-		CPPUNIT_TEST(testString_EncodeTwoOctets);
-		CPPUNIT_TEST(testString_EncodeTriplet);
-		CPPUNIT_TEST(testString_EncodeTripletAndOctet);
-		CPPUNIT_TEST(testString_EncodeTripletAndTwoOctets);
-		CPPUNIT_TEST(testString_EncodeTwoTriplets);
-		CPPUNIT_TEST(testString_EncodeTwoTripletsAndOctet);
-		CPPUNIT_TEST(testString_EncodeTwoTripletsAndTwoOctets);
+		CPPUNIT_TEST_SUITE(Base64Test);
+		CPPUNIT_TEST(testEncodeBase64String_EmptyString);
+		CPPUNIT_TEST(testEncodeBase64String_Octet);
+		CPPUNIT_TEST(testEncodeBase64String_TwoOctets);
+		CPPUNIT_TEST(testEncodeBase64String_Triplet);
+		CPPUNIT_TEST(testEncodeBase64String_TripletAndOctet);
+		CPPUNIT_TEST(testEncodeBase64String_TripletAndTwoOctets);
+		CPPUNIT_TEST(testEncodeBase64String_TwoTriplets);
+		CPPUNIT_TEST(testEncodeBase64String_TwoTripletsAndOctet);
+		CPPUNIT_TEST(testEncodeBase64String_TwoTripletsAndTwoOctets);
+		CPPUNIT_TEST(testBase64Size_Unsigned);
+		CPPUNIT_TEST(testBase64Size_UnsignedLong);
 		CPPUNIT_TEST_SUITE_END();
 	public:
-		void testString_EncodeEmptyString();
-		void testString_EncodeOctet();
-		void testString_EncodeTwoOctets();
-		void testString_EncodeTriplet();
-		void testString_EncodeTripletAndOctet();
-		void testString_EncodeTripletAndTwoOctets();
-		void testString_EncodeTwoTriplets();
-		void testString_EncodeTwoTripletsAndOctet();
-		void testString_EncodeTwoTripletsAndTwoOctets();
+		void testEncodeBase64String_EmptyString();
+		void testEncodeBase64String_Octet();
+		void testEncodeBase64String_TwoOctets();
+		void testEncodeBase64String_Triplet();
+		void testEncodeBase64String_TripletAndOctet();
+		void testEncodeBase64String_TripletAndTwoOctets();
+		void testEncodeBase64String_TwoTriplets();
+		void testEncodeBase64String_TwoTripletsAndOctet();
+		void testEncodeBase64String_TwoTripletsAndTwoOctets();
+		void testBase64Size_Unsigned();
+		void testBase64Size_UnsignedLong();
 	};
 }
 
-#endif /* AFC_ENCODEBASE64TEST_H_ */
+#endif /* AFC_BASE64TEST_H_ */

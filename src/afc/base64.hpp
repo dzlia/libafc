@@ -1,5 +1,5 @@
 /* libafc - utils to facilitate C++ development.
-Copyright (C) 2013-2015 Dźmitry Laŭčuk
+Copyright (C) 2013-2023 Dźmitry Laŭčuk
 
 libafc is free software: you can redistribute it and/or modify it under
 the terms of the GNU Lesser General Public License as published by
@@ -24,6 +24,18 @@ namespace afc
 {
 	template<typename InputIterator, typename OutputIterator>
 	OutputIterator encodeBase64(InputIterator begin, std::size_t size, OutputIterator dest);
+
+	/*
+	 * Returns the size content of a given size encoded as Base64.
+	 * There is no protection from numeric overflow. Only non-negative
+	 * values are expected as input.
+	 */
+	template<typename T>
+	constexpr T base64Size(const T inputSize)
+	{
+		// Base64 makes 4 bytes out of 3 + padding.
+		return (inputSize * 4 / 3 + 3) & ~3;
+	}
 
 	namespace _impl
 	{
@@ -106,6 +118,5 @@ OutputIterator afc::encodeBase64(InputIterator begin, std::size_t size, OutputIt
 
 	return dest;
 }
-
 
 #endif /* AFC_BASE64_HPP_ */
